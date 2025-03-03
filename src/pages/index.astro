@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import AboutMe from '../components/AboutMe.astro';
 ---
 
 <Layout>
-	<Welcome />
+    <div id="home" class="bg-image-mobile bg-cover min-h-[650px] lg:min-h-[calc(100vh-80px)] lg:bg-contain lg:bg-no-repeat flex justify-center items-end lg:items-start flex-col gap-4 px-4 lg:max-w-[1200px] lg:mx-auto">
+        <h2 class="text-[55px] lg:text-[80px] font-bold text-white z-20 text-end lg:text-start">FRONTEND DEVELOPER</h2>
+        <div class="lg:w-1/2">
+            <p class="text-white text-end lg:text-start text-xl lg:text-2xl leading-10">My name is <b class="text-white">Luciana Vanelli</b></p>
+            <p class="text-[#c2c2c2] text-end lg:text-start text-balance text-lg lg:text-xl leading-6">+1 year of experience creating intuitive and responsive interfaces. I like to turn ideas into attractive digital experiences.</p>   
+        </div>
+        <div class="flex justify-end lg:justify-start w-full ">
+            <a href="/assets/Luciana Vanelli.pdf" download target="_blank" class="px-3 py-2 lg:text-xl border-2 border-[#7304ce9f] rounded-xl text-white font-medium hover:bg-[#7304ce9f] transition-all cursor-pointer">Download CV</a>
+        </div>
+    </div>
+    <Experience/>
+    <Projects/>
+    <AboutMe/>
 </Layout>
+
+<style is:global>
+    h3 {
+        font-size: 28px;
+    }
+
+    .bg-image-mobile {
+        background-image: url("/assets/bg.png");
+        width: 100%;
+        background-position: 70%;
+    }
+
+    @media screen and (min-width: 1536px) {
+        h3 {
+            font-size: 40px;
+        }
+    }
+</style>

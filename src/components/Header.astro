@@ -1,0 +1,62 @@
+---
+---
+
+<header class="h-[80px] flex justify-center items-center">
+    <nav class="border-2 border-[#7a7a7a50] rounded-3xl w-2/3 py-2 flex justify-between max-w-[600px]">
+        <div class="lg:flex gap-3 px-2 text-primary hidden">
+            <a href="#home" class="link p-2 text-secondary cursor-pointer rounded-3xl transition-all hover:bg-[#7a7a7a50] hover:text-white">Home</a>
+            <a href="#experience" class="link p-2 text-secondary cursor-pointer rounded-3xl transition-all hover:bg-[#7a7a7a50] hover:text-white">Experience</a>
+            <a href="#projects" class="link p-2 text-secondary cursor-pointer rounded-3xl transition-all hover:bg-[#7a7a7a50] hover:text-white">Projects</a>
+            <a href="#about-me" class="link p-2 text-secondary cursor-pointer rounded-3xl transition-all hover:bg-[#7a7a7a50] hover:text-white">About me</a>
+        </div>
+        <div class="px-4 flex justify-center items-center gap-3">
+            <a href="https://www.linkedin.com/in/luciana-vanelli/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/brand-linkedin.svg" alt="Linkedin" class="w-6 h-6 hover:scale-110 transition-all">
+            </a>
+            <a href="https://github.com/luchivanelli" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/github.svg" alt="Github" class="w-6 h-6 hover:scale-110 transition-all">
+            </a>
+            <a href="mailto:lucianavanelli13@gmail.com" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/mail.svg" alt="Gmail" class="w-6 h-6 hover:scale-110 transition-all">
+            </a>
+        </div>
+        <div class="lg:hidden py-1">
+            <img id="button-nav" class="px-4 cursor-pointer" src="/assets/menu-3.svg" alt="">
+            <div id="nav-mobile" class="fixed top-0 left-0 h-screen flex flex-col justify-center gap-3 z-40 w-[200px] bg-[#141414fa] border-r-[1px] border-[#7a7a7a50] py-10 px-5
+            transform -translate-x-full transition-transform duration-300 ease-in-out text-white text-center">
+                <a href="#home" class="link p-2 rounded-3xl transition-all">Home</a>
+                <a href="#experience" class="link p-2 rounded-3xl transition-all">Experience</a>
+                <a href="#projects" class="link p-2 rounded-3xl transition-all">Projects</a>
+                <a href="#about-me" class="link p-2 rounded-3xl transition-all">About me</a>
+                <span id="close-nav" class="cursor-pointer border-[1px] border-[#7a7a7a50] p-2 rounded-3xl transition-all">Cerrar</span>
+            </div>
+        </div>     
+    </nav>
+</header>
+
+<style>
+    .link:hover {
+        background-color: #7a7a7a50;
+    }
+
+    span:hover {
+        background-color: #7a7a7a50;
+    }
+</style>
+
+<script>
+    const buttonNav = document.getElementById("button-nav");
+    const navMobile = document.getElementById("nav-mobile");
+    const closeNav = document.getElementById("close-nav");
+
+    buttonNav.addEventListener("click", () => {
+        navMobile.classList.toggle("-translate-x-full");
+    });
+
+    closeNav.addEventListener("click", () => {
+        navMobile.classList.toggle("-translate-x-full");
+    });
+
+</script>
+
+

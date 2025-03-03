@@ -1,0 +1,27 @@
+---
+interface Props {
+    company: string,
+    position: string,
+    date: string,
+    time: string
+}
+
+const {company, position, date, time} = Astro.props
+---
+<div class="m-3 p-0.5 rounded-xl bg-gradient-to-b from-[#7304ceaa] via-[#189A6Eaa] to-[#FECF42aa] min-w-[300px] lg:min-w-[350px]">
+    <div class="bg-primary p-2 lg:p-4 rounded-xl">
+        <h4 class="text-white text-center pb-1 text-xl lg:text-2xl">{position}</h4>
+        <div class="flex items-center gap-1 lg:gap-2 py-1 lg:py-0 lg:text-lg">
+            <img src="/assets/map-pin.svg" class="w-5">
+            <p class="text-secondary">{company}</p>
+        </div>
+        <div class="flex items-center gap-1 lg:gap-2 py-1 lg:py-0 lg:text-lg">
+            <img src="/assets/calendar-code.svg" class="w-5">
+            <p class="text-secondary">{date}</p>
+        </div>
+        <div class="flex items-center gap-1 lg:gap-2 py-1 lg:py-0 lg:text-lg">
+            <img src="/assets/clock.svg" class="w-5">
+            <p class="text-secondary">{time}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+    --color-primary: #141414;
+    --color-secondary: #969696;
+    --color-gradient-1: #e4cbff;
+    --color-gradient-2: #968fd0;
+    --color-gradient-3: #565a85;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Work Sans", serif;
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+.font {
+    font-family: "Arsenal SC", serif;
+}
+
+.text-violet-1 {
+    color: var(--color-gradient-1);
+}
+
+.text-violet-2 {
+    color: var(--color-gradient-2);
+}
+
+.text-violet-3 {
+    color: var(--color-gradient-3);
+}

@@ -1,0 +1,66 @@
+---
+import Card from "./Card.astro"
+
+const experiences = [
+    {
+        company: "Infinimedia Inc. | Remote",
+        position: "Frontend developer",
+        date: "Jul 2024 - Present",
+        time: "Full time"
+    },
+    {
+        company: "Daira IT Group | Remote",
+        position: "Junior web developer",
+        date: "Feb 2024 - Jul 2024",
+        time: "Freelance"
+    },
+    {
+        company: "Inkua | Remote",
+        position: "Web development intern",
+        date: "Sep 2022 - Mar 2023",
+        time: "Internships"
+    }
+]
+
+const skills1 = [
+    "/assets/html.png",
+    "/assets/css.png",
+    "/assets/js.png",
+    "/assets/bootstrap.png",
+    "/assets/tailwindcss.png"
+]
+
+const skills2 = [
+    "/assets/react.png",
+    "/assets/svelte.png",
+    "/assets/wordpress.png",
+    "/assets/git.png",
+    "/assets/github.png"
+]
+---
+
+<section class="lg:pb-10 pt-2" id="experience">
+    <h3 class="text-white font-medium px-4 pb-4 text-center lg:text-3xl">Work experience</h3>
+    <div class="flex flex-col items-center justify-center md:flex-row flex-wrap lg:max-w-[1200px] xl:justify-between lg:mx-auto">
+        {experiences.map(experience => 
+        <Card company={experience.company} position={experience.position} date={experience.date} time={experience.time}
+        />)}
+    </div>
+    <h4 class="text-white text-balance text-center font-medium px-4 pb-4 pt-10 text-xl lg:text-2xl lg:max-w-[1200px] lg:mx-auto">These are the technologies I work with</h4>
+    <div class="flex py-2 justify-center gap-4 lg:hidden">
+        {skills1.map(skill=> <img src={skill} class="w-10 lg:w-12 hover:scale-105"></div>)}
+    </div>
+    <div class="flex py-2 justify-center gap-4 lg:hidden">
+        {skills2.map(skill=> <img src={skill} class="w-10 lg:w-12 hover:scale-105"></div>)}
+    </div>
+    <div class="py-2 justify-center gap-4 hidden lg:flex">
+        {skills1.map(skill=> <img src={skill} class="w-10 lg:w-12 hover:scale-105"></div>)}
+        {skills2.map(skill=> <img src={skill} class="w-10 lg:w-12 hover:scale-105"></div>)}
+    </div>
+</section>
+
+<style>
+    h3 {
+        text-shadow: 2px 2px 2px #7304ce;
+    }
+</style>

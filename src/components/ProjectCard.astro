@@ -1,0 +1,44 @@
+---
+interface Props {
+    image: string,
+    title: string,
+    description: string,
+    stack: string,
+    live_preview: string,
+    github: string
+}
+
+const {image, title, description, stack, live_preview, github} = Astro.props
+---
+
+<img id="image-project" src={image} alt="" class="rounded-t-xl w-full">
+<div class="rounded-b-xl bg-primary lg:h-[200px] lg:flex flex-col justify-center">
+    <p class="text-white font-semibold text-xl text-center py-2 pt-3">{title}</p>
+    <div class="px-4 pb-4 text-secondary card rounded-lg text-sm lg:px-10">
+        <p class="font-medium pb-1">{description}</p>
+        <p class="font-medium"><i class="text-[#FECF42aa]">Teach stack:</i> {stack}</p>
+    </div>
+    <div class="flex justify-around px-4 pb-4">
+        <a href={live_preview} target="_blank" class="justify-center items-center inline-flex p-1 rounded-xl border-[#7a7a7a50] text-sm gap-1 border-2 hover:bg-[#7a7a7a]">
+            <img src="/assets/link.svg" alt="" class="w-5">
+            <p class="text-secondary">Live preview</p>
+        </a>
+        <a href={github} target="_blank" class="justify-center items-center inline-flex p-1 rounded-xl border-[#7a7a7a50] text-sm gap-2 border-2">
+            <img src="/assets/github.svg" alt="" class="w-5">
+            <p class="text-secondary">View code</p>
+        </a>
+    </div>
+</div>
+
+<style>
+    a:hover {
+        text-decoration: underline;
+        text-decoration-color: #7a7a7a;
+        text-underline-offset: 2px;
+    }
+
+    /* #image-project {
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    } */
+</style>

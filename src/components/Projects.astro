@@ -1,0 +1,63 @@
+---
+import ProjectCard from "./ProjectCard.astro"
+
+const projects = [
+    {
+        image: "/assets/boca-web.png",
+        title: "Arroyo Seco es de Boca",
+        description: "Responsive page made to inform about the institution",
+        stack: "Astro, React, Tailwind",
+        live_preview: "https://arroyosecoesdeboca.vercel.app/",
+        github: "https://github.com/luchivanelli/pe-a2025"
+    },
+    {
+        image: "/assets/todolist.png",
+        title: "To do list",
+        description: "App designed to organize your daily tasks efficiently",
+        stack: "React, Tailwind, dndkit",
+        live_preview: "https://todolist-app-lv.vercel.app/",
+        github: "https://github.com/luchivanelli/todolist-app"
+    },
+    {
+        image: "/assets/caballos.png",
+        title: "Caballos en libertad",
+        description: "Project carried out in internships. Teamwork using Trello",
+        stack: "HTML, CSS, Javascript",
+        live_preview: "https://manuel14mds.github.io/viewinkua/",
+        github: "https://github.com/luchivanelli/information-technology-it-workspace/tree/main/projects/caballos-en-libertad"
+    }
+]
+---
+
+<section id="projects" class="bg-image bg-no-repeat bg-cover lg:bg-top pt-14 -mt-10 ">
+    <h3 class="text-white font-medium px-4 pb-2 pt-[150px] lg:pt-[100px] 2xl:pt-[150px] text-center lg:text-3xl">My projects</h3>
+    <h4 class="text-white font-medium px-4 pb-6 text-center lg:text-xl">Somethings I developed so far</h4>
+    <div class="flex flex-col justify-between items-center lg:flex-row max-w-[1200px] mx-auto">
+        {projects.map(project => {
+            return (
+            <div class="rounded-2xl max-w-[330px] xl:max-w-[350px] flex flex-col items-center mb-4">
+                <ProjectCard 
+                    image={project.image}
+                    title={project.title} 
+                    description={project.description} 
+                    stack={project.stack} 
+                    live_preview={project.live_preview} 
+                    github={project.github}
+                    />
+            </div>
+            )
+        })}
+    </div>
+</section>
+
+<style>
+    .bg-image {
+        background-image: url("/assets/onda.svg");
+        width: 100%;
+        background-position: top right;
+    }
+
+    h3 {
+        text-shadow: 2px 2px 2px #FECF42aa;
+    }
+</style>
