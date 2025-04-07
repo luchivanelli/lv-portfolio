@@ -11,6 +11,14 @@ const projects = [
         github: "https://github.com/luchivanelli/pe-a2025"
     },
     {
+        image: "/assets/facturacion.png",
+        title: "Facturación - El pájaro",
+        description: "Billing system for automotive service",
+        stack: "React, Tailwind, jspdf-autotable",
+        live_preview: "https://facturacion-elpajaro.vercel.app/",
+        github: "https://github.com/luchivanelli/facturacion-elpajaro"
+    },
+    {
         image: "/assets/todolist.png",
         title: "To do list",
         description: "App designed to organize your daily tasks efficiently",
@@ -32,7 +40,7 @@ const projects = [
 <section id="projects" class="bg-image bg-no-repeat bg-cover lg:bg-top pt-14 -mt-10 ">
     <h3 class="text-white font-medium px-4 pb-2 pt-[150px] lg:pt-[100px] 2xl:pt-[150px] text-center lg:text-3xl">My projects</h3>
     <h4 class="text-white font-medium px-4 pb-6 text-center lg:text-xl">Somethings I developed so far</h4>
-    <div class="flex flex-col justify-between items-center lg:flex-row max-w-[1200px] mx-auto">
+    <div class="flex flex-col justify-between items-center lg:grid lg:grid-cols-2 place-items-center gap-6 max-w-[1200px] mx-auto">
         {projects.map(project => {
             return (
             <div class="rounded-2xl max-w-[330px] xl:max-w-[350px] flex flex-col items-center mb-4">
