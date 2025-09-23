@@ -44,21 +44,24 @@ import Header from "../components/Header.astro"
 	if (typeof window !== "undefined") {
     const isMobile = window.innerWidth <= 1024;
     
-    ScrollSmoother.create({
-        wrapper: "#app-wrapper",
-        content: "#app-content",
-        smooth: 1.2,
-        effects: true,
-        smoothTouch: isMobile ? 0.8 : false, // Solo smooth touch en móvil
-        normalizeScroll: true,
-        ignoreMobileResize: true,
-        
-        // Configuraciones específicas para móvil
-        ...(isMobile && {
-            smoothTouch: 0.8,              // Intensidad del smooth touch
-            touchMultiplier: 1.5,          // Multiplica la velocidad del touch
-        })
-    });
+    const isMobile = window.innerWidth <= 1024;
+
+		ScrollSmoother.create({
+			wrapper: "#app-wrapper",
+			content: "#app-content",
+			smooth: isMobile ? 2.0 : 1.2,
+			effects: true,
+			smoothTouch: isMobile ? 1.2 : false,
+			normalizeScroll: true,
+			ignoreMobileResize: true,
+			
+			// Configuraciones específicas para móvil
+			...(isMobile && {
+					touchMultiplier: 0.7,
+					smoothTouch: 1.2,
+					speed: 0.8,
+			})
+		})
 	}
 	
 </script>
