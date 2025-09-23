@@ -47,7 +47,7 @@ import Header from "../components/Header.astro"
     ScrollSmoother.create({
         wrapper: "#app-wrapper",
         content: "#app-content",
-        smooth: isMobile ? 2.0 : 1.2,     // Más smooth en móvil
+        smooth: 1.2,
         effects: true,
         smoothTouch: isMobile ? 0.8 : false, // Solo smooth touch en móvil
         normalizeScroll: true,
