@@ -39,23 +39,23 @@ const skills2 = [
 ]
 ---
 
-<section class="lg:pb-10 pt-2" id="experience">
-    <h3 class="text-white font-medium px-4 pb-4 text-center lg:text-3xl">Work experience</h3>
+<section class="lg:pb-10 pt-4" id="experience">
+    <h3 id="experience-h3" class="text-white font-medium px-4 pb-4 text-center lg:text-3xl">Work experience</h3>
     <div class="flex flex-col items-center justify-center md:flex-row flex-wrap lg:max-w-[1200px] xl:justify-between lg:mx-auto">
         {experiences.map(experience => 
         <Card company={experience.company} position={experience.position} date={experience.date} time={experience.time}
         />)}
     </div>
-    <h4 class="text-white text-balance text-center font-medium px-4 pb-4 pt-10 text-xl lg:text-2xl lg:max-w-[1200px] lg:mx-auto">These are the technologies I work with</h4>
+    <h4 id="experience-h4" class="text-white text-balance text-center font-medium px-4 pb-4 pt-10 text-xl lg:text-2xl lg:max-w-[1200px] lg:mx-auto">These are the technologies I work with</h4>
     <div class="flex py-2 justify-center gap-4 lg:hidden">
-        {skills1.map(skill=> <img src={skill} class="w-10 lg:w-12 hover:scale-105"></div>)}
+        {skills1.map(skill=> <img src={skill} class="skill w-10 lg:w-12 hover:scale-105"></div>)}
     </div>
     <div class="flex py-2 justify-center gap-4 lg:hidden">
-        {skills2.map(skill=> <img src={skill} class="w-10 lg:w-12 hover:scale-105"></div>)}
+        {skills2.map(skill=> <img src={skill} class="skill w-10 lg:w-12 hover:scale-105"></div>)}
     </div>
     <div class="py-2 justify-center gap-4 hidden lg:flex">
-        {skills1.map(skill=> <img src={skill} class="w-10 lg:w-12 hover:scale-105"></div>)}
-        {skills2.map(skill=> <img src={skill} class="w-10 lg:w-12 hover:scale-105"></div>)}
+        {skills1.map(skill=> <img src={skill} class="skill w-10 lg:w-12 hover:scale-105"></div>)}
+        {skills2.map(skill=> <img src={skill} class="skill w-10 lg:w-12 hover:scale-105"></div>)}
     </div>
 </section>
 
@@ -64,3 +64,73 @@ const skills2 = [
         text-shadow: 2px 2px 2px #7304ce;
     }
 </style>
+
+<script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#experience-h3", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#experience-h3",
+            start: "top 90%",
+            end: "top 60%",
+            scrub: 0.5,
+        }
+    })
+
+    const cards = gsap.utils.toArray(".experience-card");
+    cards.forEach((card, index) => {
+        gsap.fromTo(
+        card,
+        { opacity: 0, y: 100 },
+        {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: card,
+            start: `top+=${index * 60} 95%`,
+            end: `top+=${index * 60 - 30} 70%`,
+            scrub: 0.05,
+            }
+        }
+        );
+    });
+
+    gsap.from("#experience-h4", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#experience-h4",
+            start: "top 90%",
+            end: "top 75%",
+            scrub: 0.5,
+        }
+    })
+
+    gsap.utils.toArray(".skill").forEach((skill, index) => {
+        gsap.fromTo(
+        skill,
+        { opacity: 0, y: 50 },
+        {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: skill,
+            start: `top+=${index * 10} 98%`,
+            end: `top+=${index * 10 - 5} 85%`,
+            scrub: 0.05,
+            }
+        }
+        );
+    });
+</script>

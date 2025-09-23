@@ -3,21 +3,21 @@
 ---
 
 <section id="about-me" class="bg-image bg-no-repeat bg-cover bg-center lg:bg-top pt-36 lg:pt-[200px]">
-    <h3 class="text-white font-medium px-4 py-2 text-center lg:text-3xl">A little about me</h3>
+    <h3 id="about-me-h3" class="text-white font-medium px-4 py-2 text-center lg:text-3xl">A little about me</h3>
     <div class="grid lg:grid-cols-2 place-content-center max-w-[1200px] mx-auto py-6 lg:py-14 lg:pt-6">
-        <img src="/assets/foto.jpg" alt="" class="img -rotate-4 rounded-2xl w-[220px] lg:w-[320px] shadow-black mx-auto lg:mt-8">
+        <img id="photo" src="/assets/foto.jpg" alt="" class="img -rotate-4 rounded-2xl w-[220px] lg:w-[320px] shadow-black mx-auto lg:mt-8">
         <div class="py-10 px-6 lg:py-6 lg:px-0 text-center lg:text-start text-white flex flex-col justify-center max-w-[450px]">
-            <p class="py-1 lg:text-lg">I studied <b class="text-[#189A6Eaa]">Systems Engineering</b> for two years at the National Technological University of Rosario. During that time, I developed a strong interest in software development and began expanding my knowledge through self-study.</p>
-            <p class="py-1 lg:text-lg">I am a <b class="text-[#189A6Eaa]">self-motivated learner</b>, always eager to grow and acquire new skills. I continuously take courses to enhance my expertise and broaden my technical abilities.</p>
+            <p id="about-me-p1" class="py-1 lg:text-lg">I studied <b class="text-[#189A6Eaa]">Systems Engineering</b> for two years at the National Technological University of Rosario. During that time, I developed a strong interest in software development and began expanding my knowledge through self-study.</p>
+            <p id="about-me-p2" class="py-1 lg:text-lg">I am a <b class="text-[#189A6Eaa]">self-motivated learner</b>, always eager to grow and acquire new skills. I continuously take courses to enhance my expertise and broaden my technical abilities.</p>
             <div class="py-4 lg:text-lg flex justify-center items-center lg:justify-start gap-3">
-                <a href="/assets/Luciana Vanelli.pdf" download target="_blank" class="download border-2 border-[#189A6Eaa] rounded-xl py-1 px-2 transition-all">Download my CV</a>
-                <a href="https://www.linkedin.com/in/luciana-vanelli/" target="_blank" rel="noopener noreferrer">
+                <a href="/assets/Luciana Vanelli.pdf" download target="_blank" class="about-me-cv download border-2 border-[#189A6Eaa] rounded-xl py-1 px-2 transition-all">Download my CV</a>
+                <a href="https://www.linkedin.com/in/luciana-vanelli/" target="_blank" rel="noopener noreferrer" class="about-me-a">
                     <img src="/assets/brand-linkedin.svg" alt="Linkedin" class="w-6 h-6 hover:scale-110 transition-all">
                 </a>
-                <a href="https://github.com/luchivanelli" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/luchivanelli" target="_blank" rel="noopener noreferrer" class="about-me-a">
                     <img src="/assets/github.svg" alt="Github" class="w-6 h-6 hover:scale-110 transition-all">
                 </a>
-                <a href="mailto:lucianavanelli13@gmail.com" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:lucianavanelli13@gmail.com" target="_blank" rel="noopener noreferrer" class="about-me-a">
                     <img src="/assets/mail.svg" alt="Gmail" class="w-6 h-6 hover:scale-110 transition-all">
                 </a>
             </div>
@@ -43,3 +43,90 @@
         background-color: #189A6Eaa;
     }
 </style>
+
+<script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#about-me-h3", {
+        y: -40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#about-me-h3",
+            start: "top 85%",
+            end: "top 70%",
+            scrub: 0.5,
+        }
+    })
+
+    gsap.from("#photo", {
+        x: -100,
+        y: -50,
+        rotate: -20,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#photo",
+            start: "top 85%",
+            end: "top 50%",
+            scrub: 0.5,
+        }
+    })
+
+    gsap.from("#about-me-p1", {
+        x: 200,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#about-me-p1",
+            start: "top 95%",
+            end: "top 70%",
+            scrub: 0.5,
+        }
+    })
+
+    gsap.from("#about-me-p2", {
+        x: 200,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#about-me-p2",
+            start: "top 95%",
+            end: "top 70%",
+            scrub: 0.5,
+        }
+    })
+
+    gsap.from(".about-me-cv", {
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".about-me-a",
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    gsap.from(".about-me-a", {
+        opacity: 0,
+        duration: 0.6,
+        scale: 0.8,
+        stagger: 0.08,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".about-me-a",
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+</script>

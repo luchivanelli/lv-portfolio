@@ -6,13 +6,11 @@ import AboutMe from '../components/AboutMe.astro';
 ---
 
 <Layout>
-    <div id="home" class="bg-image-mobile bg-cover min-h-[650px] lg:min-h-[calc(100vh-80px)] lg:bg-contain lg:bg-no-repeat flex justify-center items-end lg:items-start flex-col gap-4 px-4 lg:max-w-[1200px] lg:mx-auto">
-        <h2 class="text-[55px] lg:text-[80px] leading-[50px] font-bold text-white z-20 text-end lg:text-start">FRONTEND DEVELOPER</h2>
-        <div class="lg:w-1/2">
-            <p class="text-white text-end lg:text-start text-xl lg:text-2xl leading-10">My name is <b class="text-white">Luciana Vanelli</b></p>
-            <p class="text-[#c2c2c2] text-end lg:text-start text-balance text-lg lg:text-xl leading-6">+1 year of experience creating intuitive and responsive interfaces. I like to turn ideas into attractive digital experiences.</p>   
-        </div>
-        <div class="flex justify-end lg:justify-start w-full ">
+    <div id="home" class="bg-image-mobile bg-cover overflow-x-hidden min-h-[650px] lg:min-h-[calc(100vh-80px)] lg:bg-contain lg:bg-no-repeat flex justify-center items-end lg:items-start flex-col gap-4 px-4 lg:max-w-[1200px] lg:mx-auto">
+        <p id="home-p1" class="text-white text-end lg:text-start text-xl lg:text-3xl leading-10 -mb-4 lg:mb-0">My name is <b id="home-b1" class="text-white inline-block">Luciana Vanelli</b></p>
+        <h2 id="titleh2" class="text-[50px] lg:text-[80px] leading-[50px] font-bold text-white z-20 text-end lg:text-start">FRONTEND DEVELOPER</h2>
+        <p id="home-p2" class="lg:w-1/2 lg:mt-2 text-[#c2c2c2] text-end lg:text-start text-balance text-lg lg:text-2xl leading-6 lg:leading-8">+1 year of experience creating intuitive and responsive interfaces. I like to turn ideas into attractive digital experiences.</p>   
+        <div id="button-cv" class="flex justify-end lg:justify-start w-full">
             <a href="/assets/Luciana Vanelli.pdf" download target="_blank" class="px-3 py-2 lg:text-xl border-2 border-[#7304ce9f] rounded-xl text-white font-medium hover:bg-[#7304ce9f] transition-all cursor-pointer">Download CV</a>
         </div>
     </div>
@@ -32,9 +30,73 @@ import AboutMe from '../components/AboutMe.astro';
         background-position: 70%;
     }
 
+    #app-wrapper {
+        overflow-x: hidden;
+    }
+
+    #app-content {
+        will-change: transform;
+        transform: translateZ(0);
+    }
+
     @media screen and (min-width: 1536px) {
         h3 {
             font-size: 40px;
         }
     }
 </style>
+
+<script>
+    import SplitType from "split-type"
+    import gsap from "gsap"
+    import { animationEnter } from "../utils/animations"
+
+    // dividir el texto en palabras y caracteres
+    const textH2 = new SplitType("#titleh2", { types: "words,chars" })
+    const nameSplit = new SplitType("#home-b1", { types: "chars" })
+
+    // animar caracteres
+    gsap.from(textH2.chars, {
+        y: 50,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 0.8,
+        color: "#7304ce9f",
+        ease: "power3.out"
+    })
+
+    animationEnter(textH2)
+    
+    gsap.from("#home-p1", {
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.5,
+        ease: "power3.out"
+    })
+
+    gsap.from(nameSplit.chars, {
+        x: 200,
+        opacity: 0,
+        delay: 1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.06
+    })
+
+    gsap.from("#home-p2", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out"
+    })
+
+    gsap.from("#button-cv", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.8,
+        ease: "power3.out"
+    })
+
+</script>

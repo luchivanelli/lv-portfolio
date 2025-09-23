@@ -38,12 +38,12 @@ const projects = [
 ---
 
 <section id="projects" class="bg-image bg-no-repeat bg-cover lg:bg-top pt-14 -mt-10 ">
-    <h3 class="text-white font-medium px-4 pb-2 pt-[150px] lg:pt-[100px] 2xl:pt-[150px] text-center lg:text-3xl">My projects</h3>
-    <h4 class="text-white font-medium px-4 pb-6 text-center lg:text-xl">Somethings I developed so far</h4>
+    <h3 id="projects-h3" class="text-white font-medium px-4 pb-2 pt-[150px] lg:pt-[100px] 2xl:pt-[150px] text-center lg:text-3xl">My projects</h3>
+    <h4 id="projects-h4" class="text-white font-medium px-4 pb-6 text-center lg:text-xl">Somethings I developed so far</h4>
     <div class="flex flex-col justify-between items-center lg:grid lg:grid-cols-2 place-items-center gap-6 max-w-[1200px] mx-auto">
         {projects.map(project => {
             return (
-            <div class="rounded-2xl max-w-[330px] xl:max-w-[350px] flex flex-col items-center mb-4">
+            <div class="project rounded-2xl max-w-[330px] xl:max-w-[350px] h-[390px] flex flex-col items-center mb-4">
                 <ProjectCard 
                     image={project.image}
                     title={project.title} 
@@ -69,3 +69,54 @@ const projects = [
         text-shadow: 2px 2px 2px #FECF42aa;
     }
 </style>
+
+<script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#projects-h3", {
+        y: -40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#projects-h3",
+            start: "top 70%",
+            end: "top 40%",
+            scrub: 0.5,
+        }
+    })
+
+    gsap.from("#projects-h4", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#projects-h3",
+            start: "top 60%",
+            end: "top 30%",
+            scrub: 0.5,
+        }
+    })
+
+    const projects = gsap.utils.toArray(".project");
+    projects.forEach((project, index) => {
+        gsap.fromTo(
+        project,
+        { opacity: 0, y: 100 },
+        {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: project,
+            start: `top+=${index * 40} 100%`,
+            end: `top+=${index * 40 - 20} 75%`,
+            scrub: 0.06,
+            }
+        }
+        );
+    });
+</script>
